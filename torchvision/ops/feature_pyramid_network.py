@@ -184,6 +184,7 @@ class LastLevelP6P7(ExtraFPNBlock):
         self.use_P5 = in_channels == out_channels
 
     def forward(self, p, c, names):
+        # type: (List[Tensor], List[Tensor], List[str])
         p5, c5 = p[-1], c[-1]
         x = p5 if self.use_P5 else c5
         p6 = self.p6(x)
